@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Verify PAN{% endblock %}
+{% block content %}
+<section class="panel verify-panel">
+  <p class="eyebrow">PAN VERIFICATION</p>
+  <h2>Verify your PAN details</h2>
+  <p class="lead">Enter the Aadhaar number and date of birth used during registration.</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <p><label for="aadhaar_number">Aadhaar number</label><input id="aadhaar_number" name="aadhaar_number" type="text" inputmode="numeric" maxlength="12" required></p>
+    <p><label for="dob">Date of birth</label><input id="dob" name="dob" type="date" required></p>
+    <button class="button verify-button" type="submit">Verify and continue</button>
+  </form>
+</section>
+{% endblock %}

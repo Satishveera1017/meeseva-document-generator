@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ kind|title }} Aadhaar{% endblock %}
+{% block content %}
+<section class="document-wrap">
+  <div class="document-actions">
+    <a class="button {% if kind == 'masked' %}button-masked{% else %}button-unmasked{% endif %}" href="{% url 'delivery_options' record.number kind %}">Download {{ kind|title }}</a>
+  </div>
+
+  {% if kind == 'masked' %}
+    {% include "aadhar_masked.html" %}
+  {% else %}
+    {% include "aadhar_unmasked.html" %}
+  {% endif %}
+</section>
+{% endblock %}

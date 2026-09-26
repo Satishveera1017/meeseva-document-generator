@@ -1,0 +1,43 @@
+{% load static %}
+<div class="aadhaar-sheet">
+  <article class="aadhaar-card aadhaar-front">
+    <header class="aadhaar-header">
+      <img class="aadhaar-emblem" src="{% static 'emblem.png' %}" alt="Government emblem">
+      <img class="government-strip" src="{% static 'government-strip.png' %}" alt="Government of India">
+    </header>
+    <div class="front-content">
+      {% if record.photo %}<img class="aadhaar-photo" src="{{ record.photo.url }}" alt="{{ record.full_name }}">{% else %}<div class="aadhaar-photo photo-empty">No photo</div>{% endif %}
+      <div class="front-details">
+        <p class="telugu-line">పేరు: {{ record.full_name }}</p>
+        <p>Name: {{ record.full_name }}</p>
+        <p>పుట్టిన తేదీ/DOB: {{ record.dob|date:'Y-m-d' }}</p>
+        <p>పురుషుడు/{{ gender_display }}</p>
+      </div>
+      <img class="aadhaar-qr" src="{% url 'qr_code' record.number %}" alt="Secure QR code">
+    </div>
+    <div class="aadhaar-number">{{ display_number|slice:':4' }} {{ display_number|slice:'4:8' }} {{ display_number|slice:'8:' }}</div>
+    <div class="aadhaar-divider"></div>
+    <p class="aadhaar-motto">నా ఆధార్, నా గుర్తింపు</p>
+  </article>
+
+  <article class="aadhaar-card aadhaar-back">
+    <header class="aadhaar-header">
+      <img class="government-strip" src="{% static 'government-strip.png' %}" alt="Government of India">
+    </header>
+    <div class="back-content">
+      <div class="address-details">
+        <p class="telugu-line">చిరునామా: {{ record.Father_name }}</p>
+        <p>Address: {{ record.address }}</p>
+        <p>{{ record.state.name }} - {{ record.pincode }}</p>
+      </div>
+      <img class="back-qr" src="{% url 'qr_code' record.number %}" alt="Secure QR code">
+    </div>
+    <div class="aadhaar-number">{{ display_number|slice:':4' }} {{ display_number|slice:'4:8' }} {{ display_number|slice:'8:' }}</div>
+    <div class="aadhaar-divider"></div>
+    <div class="aadhaar-contacts">
+      <span>☎<small>1947</small></span>
+      <span>✉<small>help@uidai.gov.in</small></span>
+      <span>◉<small>www.uidai.gov.in</small></span>
+    </div>
+  </article>
+</div>

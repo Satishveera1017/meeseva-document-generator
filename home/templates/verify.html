@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Verify Aadhaar{% endblock %}
+{% block content %}
+<section class="panel verify-panel">
+  <p class="eyebrow">Verification Process</p>
+  <h2>Verify your record</h2>
+  <p class="lead">Enter the mobile number, father name, and last name used during registration.</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <p><label for="mobile">Mobile number</label><input id="mobile" name="mobile" type="tel" required maxlength="10"></p>
+    <p><label for="father_name">Father name</label><input id="father_name" name="father_name" required></p>
+    <p><label for="last_name">Last name</label><input id="last_name" name="last_name" required></p>
+    <button class="button verify-button" type="submit">Verify and continue</button>
+  </form>
+</section>
+{% endblock %}

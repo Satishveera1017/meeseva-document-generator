@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Aadhaar Desk{% endblock %}
+{% block content %}
+<div class="actions page-actions">
+  <a class="button button-generate" href="{% url 'registration' %}">Generate</a>
+  <a class="button button-download" href="{% url 'document_choice' %}">Download</a>
+</div>
+{% endblock %}

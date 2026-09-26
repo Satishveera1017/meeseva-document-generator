@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Generate Aadhaar{% endblock %}
+{% block content %}
+<section class="panel">
+  <p class="eyebrow">NEW RECORD</p>
+  <h2>Enter identity details</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button" type="submit">SUBMIT</button>
+  </form>
+</section>
+{% endblock %}

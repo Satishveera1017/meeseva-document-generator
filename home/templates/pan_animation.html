@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Preparing PAN Card{% endblock %}
+{% block content %}
+<section class="fishing-animation" aria-live="polite">
+  <h2>Preparing your PAN card</h2>
+  <p>The verified details are being prepared. Your card will open shortly.</p>
+  <div class="fishing-scene" aria-label="Fishing animation">
+    <img class="fishing-gif" src="{% static 'fishing.gif' %}" alt="Man fishing">
+  </div>
+  <p class="animation-status">Please wait...</p>
+</section>
+<script>
+  window.setTimeout(function () {
+    document.querySelector('.fishing-scene').classList.add('fish-caught');
+    document.querySelector('.animation-status').textContent = 'Fish caught! Loading your PAN card...';
+  }, 14000);
+  window.setTimeout(function () {
+    window.location.href = "{% url 'pan_document' record.number %}";
+  }, 15000);
+</script>
+<style>
+  .fishing-animation { max-width: 760px; margin: 0 auto; text-align: center; }
+  .fishing-animation h2 { margin-bottom: 8px; }
+  .fishing-animation p { font-size: 18px; }
+  .fishing-scene { position: relative; height: 360px; overflow: hidden; background: #ffffff; border: 0; }
+  .fishing-gif { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .animation-status { transition: opacity .2s ease-out; }
+</style>
+{% endblock %}

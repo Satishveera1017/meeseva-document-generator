@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Choose Document{% endblock %}
+{% block content %}
+<section class="panel button-page">
+  <p class="eyebrow">View & Download</p>
+  <h2>Choose a document</h2>
+  <p class="lead">Select Aadhaar or PAN to continue with verification.</p>
+  <div class="actions">
+    <a class="button button-masked" href="{% url 'verify' %}">Aadhaar</a>
+    <a class="button button-unmasked" href="{% url 'pan_verify' %}">PAN Card</a>
+  </div>
+</section>
+{% endblock %}

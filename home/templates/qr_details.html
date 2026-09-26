@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}QR Record Details{% endblock %}
+{% block content %}
+<section class="panel">
+  <p class="eyebrow">QR CODE</p>
+  <div class="qr-record-header">
+    {% if record.photo %}
+      <img class="qr-photo" src="{{ record.photo.url }}" alt="Photo of {{ record.full_name }}">
+    {% else %}
+      <div class="qr-photo qr-photo-empty">No photo</div>
+    {% endif %}
+    <div>
+      <h2>{{ record.full_name }}</h2>
+      <p><strong>Aadhaar number</strong><br>{{ record.number }}</p>
+    </div>
+  </div>
+  <div class="details-grid">
+    <p><strong>Date of birth</strong><br>{{ record.dob }}</p>
+    <p><strong>Gender</strong><br>{{ record.get_gender_display }}</p>
+    <p><strong>Father name</strong><br>{{ record.Father_name }}</p>
+    <p><strong>Mobile</strong><br>{{ record.Phone_number }}</p>
+    <p><strong>Address</strong><br>{{ record.address }}</p>
+    <p><strong>State / Pincode</strong><br>{{ record.state }} / {{ record.pincode }}</p>
+  </div>
+</section>
+{% endblock %}

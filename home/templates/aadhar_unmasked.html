@@ -1,0 +1,73 @@
+{% load static %}
+<div class="unmasked-layout">
+  <div class="unmasked-top-grid">
+    <article class="unmasked-letter">
+      <div class="letter-header">
+        <img class="letter-emblem" src="{% static 'emblem.png' %}" alt="National emblem">
+        <img class="letter-government" src="{% static 'aadhar-logo.png' %}" alt="Government of India">
+      </div>
+      <div class="letter-official-bands">
+        <div class="letter-saffron-band"><strong>భారత ప్రభుత్వం</strong><span>Government of India</span></div>
+        <div class="letter-green-band"><strong>భారతీయ విశిష్ట గుర్తింపు ప్రाधिकరణ</strong><span>Unique Identification Authority of India</span></div>
+      </div>
+      <p class="letter-enrolment">నమోదు క్రమం / Enrolment No.: {{ record.number }}</p>
+      <div class="letter-recipient-row">
+        <div class="letter-recipient">
+          <span class="letter-to">To</span>
+          <strong>{{ record.full_name }}</strong>
+          <span>C/O: {{ record.Father_name }}</span>
+          <span>{{ record.address }}</span>
+          <span>{{ record.state.name }}</span>
+          <span>PIN Code: {{ record.pincode }}</span>
+          <span>Mobile: {{ record.Phone_number }}</span>
+        </div>
+        <img class="letter-qr" src="{% url 'qr_code' record.number %}" alt="Secure QR code">
+      </div>
+      <div class="letter-signature">
+        <strong>Signature valid</strong><span>Digitally signed</span><span>Unique Identification</span><span>Authority of India</span>
+      </div>
+      <div class="letter-number-block">
+        <span>మీ ఆధార్ నంబర్ / Your Aadhaar No. :</span>
+        <strong>{{ display_number|slice:':4' }} {{ display_number|slice:'4:8' }} {{ display_number|slice:'8:' }}</strong>
+        <div class="letter-rule"></div><span>నా ఆధార్, నా గుర్తింపు</span>
+      </div>
+    </article>
+
+    <aside class="unmasked-side">
+      <section class="information-card">
+        <div class="information-header"><img src="{% static 'emblem.png' %}" alt="National emblem"><img src="{% static 'government-strip.png' %}" alt="Government of India"></div>
+        <h2>సమాచారం</h2>
+        <ul>
+          <li>ఆధార్ దేశవ్యాప్తంగా చెల్లుబాటు అవుతుంది.</li><li>వివిధ ప్రభుత్వ మరియు ప్రభుత్వేతర సేవలను సులభంగా పొందడానికి ఆధార్ సహాయపడుతుంది.</li><li>మీ ఆధార్‌లో మీ మొబైల్ నంబర్ మరియు ఇమెయిల్ ఐడిని అప్‌డేట్ చేయండి.</li><li>మీ స్మార్ట్‌ఫోన్‌లో ఆధార్‌ను ఉంచుకోండి — mAadhaar App ఉపయోగించండి.</li>
+        </ul>
+        <h3>INFORMATION</h3>
+        <ul>
+          <li>Aadhaar is valid throughout the country.</li><li>Aadhaar helps you avail Government and non-Government services.</li><li>Keep your mobile number and email ID updated in Aadhaar.</li><li>Carry Aadhaar in your smartphone and use the mAadhaar app.</li>
+        </ul>
+        <div class="information-box">
+          <ul><li>ఆధార్ దేశవ్యాప్తంగా చెల్లుబాటు అవుతుంది.</li><li>ఆధార్ వివిధ ప్రభుత్వ మరియు ప్రభుత్వేతర సేవలను సులభంగా పొందడానికి సహాయపడుతుంది.</li><li>మీ మొబైల్ నంబర్ మరియు ఇమెయిల్ ఐడిని ఆధార్‌లో అప్‌డేట్ చేయండి.</li><li>ఆధార్‌ను మీ స్మార్ట్‌ఫోన్‌లో ఉంచుకొని mAadhaar App ఉపయోగించండి.</li></ul>
+          <ul><li>Aadhaar is valid throughout the country.</li><li>Aadhaar helps you avail various Government and non-Government services easily.</li><li>Keep your mobile number and email ID updated in Aadhaar.</li><li>Carry Aadhaar in your smartphone and use the mAadhaar app.</li></ul>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <div class="unmasked-bottom-grid">
+    <section class="letter-mini-card aadhaar-card">
+      <div class="letter-mini-header"><img src="{% static 'emblem.png' %}" alt="National emblem"><img src="{% static 'government-strip.png' %}" alt="Government of India"></div>
+      <div class="letter-mini-content">
+        {% if record.photo %}<img src="{{ record.photo.url }}" alt="{{ record.full_name }}">{% else %}<div class="photo-empty">No photo</div>{% endif %}
+        <div><span class="telugu-line">పేరు: {{ record.full_name }}</span><span>Name: {{ record.full_name }}</span><span>పుట్టిన తేదీ/DOB: {{ record.dob|date:'Y-m-d' }}</span><span>పురుషుడు/{{ gender_display }}</span></div>
+        <img class="letter-mini-qr" src="{% url 'qr_code' record.number %}" alt="Secure QR code">
+      </div>
+      <div class="aadhaar-number">{{ display_number|slice:':4' }} {{ display_number|slice:'4:8' }} {{ display_number|slice:'8:' }}</div><div class="aadhaar-divider"></div><p class="aadhaar-motto">నా ఆధార్, నా గుర్తింపు</p>
+    </section>
+
+    <section class="unmasked-back aadhaar-card">
+      <div class="unmasked-back-header"><img src="{% static 'aadhaar-logo.png' %}" alt="Aadhaar logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'"><span class="aadhaar-logo-fallback">AADHAAR</span><img src="{% static 'government-strip.png' %}" alt="Government of India"></div>
+      <div class="unmasked-back-content"><div><strong>చిరునామా: {{ record.Father_name }}</strong><span>Address: {{ record.address }}</span><span>{{ record.state.name }} - {{ record.pincode }}</span></div><img src="{% url 'qr_code' record.number %}" alt="Secure QR code"></div>
+      <div class="aadhaar-number">{{ display_number|slice:':4' }} {{ display_number|slice:'4:8' }} {{ display_number|slice:'8:' }}</div><div class="aadhaar-divider"></div>
+      <div class="aadhaar-contacts"><span>☎<small>1947</small></span><span>✉<small>help@uidai.gov.in</small></span><span>◉<small>www.uidai.gov.in</small></span></div>
+    </section>
+  </div>
+</div>

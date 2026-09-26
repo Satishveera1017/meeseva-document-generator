@@ -1,0 +1,9 @@
+asgiref==3.12.1
+colorama==0.4.6
+Django==6.1
+pillow==12.3.0
+psycopg2==2.9.12
+python-dotenv==1.2.3
+qrcode==8.2
+sqlparse==0.5.5
+tzdata==2026.3
