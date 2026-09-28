@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Download {{ kind|title }}{% endblock %}
 {% block content %}
-<section class="panel button-page">
+<section class="panel delivery-panel">
   <p class="eyebrow">Delivery options</p>
   <h2>How would you like your document?</h2>
   {% if sent %}
@@ -11,16 +11,30 @@
   {% else %}
     <p class="lead">Choose how to receive your document.</p>
   {% endif %}
-  <div class="actions">
+
+  <div class="delivery-actions">
     {% if kind == "pan" %}
-      <a class="button button-download" href="{% url 'pan_download' record.number %}">Download locally</a>
+      <a class="delivery-card green-card" href="{% url 'pan_download' record.number %}">
+        <span class="card-label">Download</span>
+        <strong>Download locally</strong>
+      </a>
     {% else %}
-      <a class="button button-download" href="{% url 'document_view' record.number kind %}">Open formatted document</a>
-      <a class="button button-unmasked" href="{% url 'document_download' record.number kind %}">Download SVG</a>
+      <a class="delivery-card orange-card" href="{% url 'document_view' record.number kind %}">
+        <span class="card-label">View</span>
+        <strong>Open formatted document</strong>
+      </a>
+      <a class="delivery-card green-card" href="{% url 'document_download' record.number kind %}">
+        <span class="card-label">Download</span>
+        <strong>Download SVG</strong>
+      </a>
     {% endif %}
-    <form method="post" action="{% url 'email_document' record.number kind %}">
+
+    <form class="delivery-form" method="post" action="{% url 'email_document' record.number kind %}">
       {% csrf_token %}
-      <button class="button button-unmasked" type="submit">Email</button>
+      <button class="delivery-card email-card" type="submit">
+        <span class="card-label">Send</span>
+        <strong>Email document</strong>
+      </button>
     </form>
   </div>
 </section>

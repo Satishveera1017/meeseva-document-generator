@@ -1,13 +1,23 @@
 {% extends "base.html" %}
 {% block title %}Download Aadhaar{% endblock %}
 {% block content %}
-<section class="panel button-page">
+<section class="panel download-panel">
   <p class="eyebrow">View & Download</p>
   <h2>Choose Aadhaar format</h2>
   <p class="lead">Select the Aadhaar document you want to view and download.</p>
-  <div class="actions">
-    <a class="button button-masked" href="{% url 'document_view' record.number 'masked' %}">Masked</a>
-    <a class="button button-unmasked" href="{% url 'document_view' record.number 'unmasked' %}">Unmasked</a>
+
+  <div class="download-actions">
+    <a class="download-card green-card" href="{% url 'document_view' record.number 'masked' %}">
+      <span class="card-label">Safe view</span>
+      <strong>Masked</strong>
+      <small>Download a cleaner, privacy-friendly version.</small>
+    </a>
+
+    <a class="download-card orange-card" href="{% url 'document_view' record.number 'unmasked' %}">
+      <span class="card-label">Full view</span>
+      <strong>Unmasked</strong>
+      <small>Open the complete document details.</small>
+    </a>
   </div>
 </section>
 {% endblock %}

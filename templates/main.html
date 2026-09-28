@@ -1,8 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Aadhaar Desk{% endblock %}
+{% block title %}Meeseva Desk{% endblock %}
 {% block content %}
-<div class="actions page-actions">
-  <a class="button button-generate" href="{% url 'registration' %}">Generate</a>
-  <a class="button button-download" href="{% url 'document_choice' %}">Download</a>
+<div class="welcome-card">
+  <p class="eyebrow">Meeseva Services</p>
+  <h1>Welcome</h1>
+  <p class="lead">Choose an action to continue.</p>
+
+  <div class="actions page-actions">
+    <a class="button button-generate" href="{% url 'registration' %}">Generate</a>
+    <a class="button button-download" href="{% url 'document_choice' %}">Download</a>
+  </div>
 </div>
 {% endblock %}

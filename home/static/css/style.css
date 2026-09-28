@@ -6,7 +6,7 @@ body {
     margin: 0;
     color: #000000;
     background: #ffffff;
-    font-family: Georgia, serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
 }
 
@@ -26,12 +26,24 @@ header a {
     color: #ffffff;
     text-decoration: none;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 main {
     padding: 58px 0;
     min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-card {
+    width: min(560px, 100%);
+    padding: 42px 32px;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    text-align: center;
 }
 
 .panel {
@@ -44,14 +56,130 @@ main {
     box-shadow: 0 10px 20px #cccccc;
 }
 
+.registration-panel {
+    max-width: 620px;
+    padding: 28px 30px 30px;
+    background: linear-gradient(180deg, #fffaf5 0%, #ffffff 100%);
+    border: 1px solid #e7d7b5;
+    border-top: 6px solid #f57c00;
+    box-shadow: 0 12px 26px rgba(21, 86, 56, 0.08);
+}
+
+.registration-panel h2 {
+    color: #165e3a;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.registration-form {
+    margin-top: 22px;
+}
+
+.registration-form p {
+    margin: 0 0 18px;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    color: #1d4d36;
+    font-weight: bold;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+    border: 1px solid #cfe3d5;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #ffffff;
+    box-shadow: inset 0 1px 2px rgba(22, 94, 58, 0.04);
+}
+
+.registration-form input:focus,
+.registration-form select:focus,
+.registration-form textarea:focus {
+    outline: 2px solid rgba(245, 124, 0, 0.18);
+    border-color: #f57c00;
+}
+
+.button-submit {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 10px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #f57c00 0%, #e76f00 100%);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(245, 124, 0, 0.25);
+}
+
 .verify-panel {
-    background: #fff2a8;
+    max-width: 620px;
+    padding: 30px 28px 32px;
+    background: linear-gradient(180deg, #fffdf7 0%, #fffaf0 100%);
+    border: 1px solid #efd6ba;
+    border-top: 6px solid #f57c00;
+    box-shadow: 0 12px 28px rgba(79, 50, 11, 0.06);
+}
+
+.verify-panel h2 {
+    color: #1b4c39;
+    margin-bottom: 8px;
+}
+
+.verify-panel form {
+    margin-top: 18px;
+}
+
+.verify-panel form p {
+    margin: 0 0 16px;
+}
+
+.verify-panel label {
+    display: block;
+    margin-bottom: 7px;
+    color: #1b4c39;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.verify-panel input {
+    border: 1px solid #d7c9b2;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #ffffff;
+    box-shadow: inset 0 1px 2px rgba(34, 68, 45, 0.04);
+}
+
+.verify-panel input:focus {
+    outline: 2px solid rgba(245, 124, 0, 0.18);
+    border-color: #f57c00;
+}
+
+.verify-button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #2e7d32 0%, #1f5f2d 100%);
+    box-shadow: 0 8px 18px rgba(46, 125, 50, 0.2);
+}
+
+.error {
+    margin: 14px 0 18px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #fff1f1;
+    border: 1px solid #f3c2c2;
+    color: #8c1d1d;
+    font-weight: bold;
 }
 
 h1 {
     margin: 0 0 12px;
-    font-size: 60px;
-    line-height: 1;
+    font-size: 42px;
+    line-height: 1.1;
+    color: #111111;
 }
 
 h2 {
@@ -60,15 +188,19 @@ h2 {
 }
 
 p.lead {
-    color: #000000;
+    color: #4b4b4b;
     font-size: 18px;
     line-height: 1.5;
+    margin: 0;
 }
 
 .eyebrow {
+    margin: 0 0 10px;
     color: #000000;
     font-weight: bold;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 .actions {
@@ -76,12 +208,90 @@ p.lead {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
-    margin-top: 34px;
+    margin-top: 28px;
 }
 
 .page-actions {
-    min-height: 50vh;
+    min-height: auto;
     align-items: center;
+}
+
+.download-panel {
+    max-width: 660px;
+    padding: 30px 28px 32px;
+    background: linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+    border: 1px solid #e7dcc4;
+    border-top: 6px solid #2e7d32;
+    box-shadow: 0 12px 28px rgba(16, 57, 36, 0.07);
+}
+
+.download-panel h2 {
+    color: #1c5d3a;
+    margin-bottom: 10px;
+}
+
+.download-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.download-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 22px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #1e1e1e;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.download-card:hover {
+    transform: translateY(-2px);
+}
+
+.green-card {
+    background: linear-gradient(135deg, #f2faf4 0%, #f8fff9 100%);
+    border-color: #cae3d1;
+    box-shadow: 0 8px 18px rgba(46, 125, 50, 0.08);
+}
+
+.orange-card {
+    background: linear-gradient(135deg, #fff5eb 0%, #fffaf3 100%);
+    border-color: #f5d4ad;
+    box-shadow: 0 8px 18px rgba(245, 124, 0, 0.08);
+}
+
+.download-card .card-label {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(46, 125, 50, 0.1);
+    color: #1f6d3d;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.orange-card .card-label {
+    background: rgba(245, 124, 0, 0.12);
+    color: #b85c00;
+}
+
+.download-card strong {
+    font-size: 22px;
+    color: #171717;
+}
+
+.download-card small {
+    color: #4f4f4f;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 .button-page {
@@ -91,6 +301,165 @@ p.lead {
     justify-content: center;
 }
 
+.choice-panel {
+    max-width: 700px;
+    padding: 30px 28px 32px;
+    background: linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+    border: 1px solid #e7dcc4;
+    border-top: 6px solid #2e7d32;
+    box-shadow: 0 12px 28px rgba(16, 57, 36, 0.07);
+}
+
+.choice-panel h2 {
+    color: #1c5d3a;
+    margin-bottom: 8px;
+}
+
+.choice-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.choice-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 22px 20px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.choice-card:hover {
+    transform: translateY(-2px);
+}
+
+.aadhaar-card {
+    background: linear-gradient(135deg, #fff5eb 0%, #fffaf3 100%);
+    border-color: #f5d4ad;
+    box-shadow: 0 8px 18px rgba(245, 124, 0, 0.08);
+}
+
+.pan-card {
+    background: linear-gradient(135deg, #f2faf4 0%, #f8fff9 100%);
+    border-color: #cfe8d7;
+    box-shadow: 0 8px 18px rgba(46, 125, 50, 0.08);
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(46, 125, 50, 0.1);
+    color: #1f6d3d;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.aadhaar-card .card-tag {
+    background: rgba(245, 124, 0, 0.12);
+    color: #b85c00;
+}
+
+.choice-card strong {
+    font-size: 22px;
+    color: #1c1c1c;
+}
+
+.choice-card small {
+    color: #4e4e4e;
+    font-size: 13px;
+}
+
+.delivery-panel {
+    max-width: 720px;
+    padding: 30px 28px 32px;
+    background: linear-gradient(180deg, #fffefb 0%, #ffffff 100%);
+    border: 1px solid #e9d9bb;
+    border-top: 6px solid #f57c00;
+    box-shadow: 0 12px 26px rgba(35, 58, 45, 0.06);
+}
+
+.delivery-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.delivery-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 18px 18px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #1a1a1a;
+    background: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.delivery-card:hover {
+    transform: translateY(-2px);
+}
+
+.orange-card {
+    background: linear-gradient(135deg, #fff5eb 0%, #fffaf3 100%);
+    border-color: #f5d4ad;
+    box-shadow: 0 8px 18px rgba(245, 124, 0, 0.08);
+}
+
+.green-card {
+    background: linear-gradient(135deg, #f2faf4 0%, #f8fff9 100%);
+    border-color: #cae3d1;
+    box-shadow: 0 8px 18px rgba(46, 125, 50, 0.08);
+}
+
+.email-card {
+    width: 100%;
+    background: linear-gradient(135deg, #fff7ed 0%, #f6fbe9 100%);
+    border-color: #edd8ab;
+    box-shadow: 0 8px 18px rgba(46, 125, 50, 0.06);
+}
+
+.card-label {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(46, 125, 50, 0.1);
+    color: #1f6d3d;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.orange-card .card-label {
+    background: rgba(245, 124, 0, 0.12);
+    color: #b85c00;
+}
+
+.delivery-card strong {
+    font-size: 20px;
+    color: #171717;
+}
+
+.delivery-form {
+    margin: 0;
+}
+
 .button {
     display: inline-block;
     padding: 15px 24px;
@@ -98,10 +467,15 @@ p.lead {
     color: #ffffff;
     background-color: black;
     text-decoration: none;
-    font-family: Georgia, serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.button:hover {
+    opacity: 0.95;
 }
 
 .button-generate,
@@ -137,7 +511,7 @@ textarea {
     padding: 12px;
     border: 1px solid #000000;
     background: #ffffff;
-    font-family: Georgia, serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
 }
 
@@ -174,7 +548,7 @@ textarea {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 20px;
-    background: #f5f5f5;
+    background: #f6f6f6;
     border: 1px solid #d7d7d7;
     text-align: left;
 }
@@ -182,8 +556,8 @@ textarea {
 .unmasked-letter,
 .information-card,
 .unmasked-back {
-    background: #f6f6f6;
-    border: 1px solid #d1d1d1;
+    background: #ffffff;
+    border: 1px solid #f6f6f6;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -196,11 +570,13 @@ textarea {
 }
 
 .letter-header {
+    /* border: 2px solid; */
     height: 64px;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: space-between;
     position: relative;
+    
 }
 
 .letter-emblem {
@@ -213,7 +589,10 @@ textarea {
 }
 
 .letter-government {
-    width: 300px;
+    /* border: 2px solid; */
+    position: absolute;
+    right: 20px;
+    width: 100px;
     height: 58px;
     object-fit: contain;
 }
@@ -247,7 +626,7 @@ textarea {
     font-size: 13px;
 }
 
-.letter-saffron-band span,
+.letter-saffron-band span, 
 .letter-green-band span {
     font-weight: bold;
 }
@@ -259,6 +638,7 @@ textarea {
 }
 
 .letter-recipient-row {
+    /* border: 2px solid; */
     display: flex;
     align-items: flex-start;
     gap: 20px;
@@ -285,8 +665,8 @@ textarea {
 
 .letter-qr {
     flex: 0 0 128px;
-    width: 128px;
-    height: 128px;
+    width: 158px;
+    height: 158px;
     object-fit: contain;
 }
 
@@ -330,7 +710,7 @@ textarea {
     box-sizing: border-box;
     margin-top: 0;
     padding: 10px;
-    background: #f6f6f6;
+    background: #ffffff;
     border: 1px solid #d1d1d1;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
@@ -339,7 +719,7 @@ textarea {
     height: 42px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     gap: 12px;
     position: relative;
 }
@@ -597,7 +977,7 @@ textarea {
     background: #ffffff;
     border: 1px solid #111111;
     box-shadow: 0 10px 20px #cccccc;
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
 }
 
@@ -741,7 +1121,7 @@ textarea {
 .aadhaar-number {
     text-align: center;
     margin-top: 2px;
-    font-family: Georgia, serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 27px;
     line-height: 1.1;
 }

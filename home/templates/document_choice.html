@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Choose Document{% endblock %}
 {% block content %}
-<section class="panel button-page">
+<section class="panel choice-panel">
   <p class="eyebrow">View & Download</p>
   <h2>Choose a document</h2>
   <p class="lead">Select Aadhaar or PAN to continue with verification.</p>
-  <div class="actions">
-    <a class="button button-masked" href="{% url 'verify' %}">Aadhaar</a>
-    <a class="button button-unmasked" href="{% url 'pan_verify' %}">PAN Card</a>
+  <div class="choice-actions">
+    <a class="choice-card aadhaar-card" href="{% url 'verify' %}">
+      <span class="card-tag">Aadhaar</span>
+      <strong>Identity Document</strong>
+      <small>Verify and download</small>
+    </a>
+    <a class="choice-card pan-card" href="{% url 'pan_verify' %}">
+      <span class="card-tag">PAN</span>
+      <strong>Tax Document</strong>
+      <small>Verify and preview</small>
+    </a>
   </div>
 </section>
 {% endblock %}
